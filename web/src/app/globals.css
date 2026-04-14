@@ -1,26 +1,44 @@
 @import "tailwindcss";
 
+/*
+ * Use Lacuna-prefixed tokens — Tailwind v4 reserves --background / --foreground
+ * and flips them in dark mode (e.g. --background → #0a0a0a), which overrode our palette.
+ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+  --lacuna-canvas: #f5f0e8;
+  --lacuna-surface: #c4a882;
+  --lacuna-ink: #c17f5a;
+  /* Hairline borders — max 1px; use with border-solid */
+  --lacuna-border: color-mix(in oklab, var(--lacuna-ink) 22%, transparent);
+  /* One radius for the product (6px) — scholarly, not “SaaS round” */
+  --lacuna-radius: 6px;
 }
+
+/* On secondary surfaces (tan), body text uses canvas color for contrast. Pair: bg-lacuna-surface + text-lacuna-canvas */
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-lacuna-canvas: var(--lacuna-canvas);
+  --color-lacuna-ink: var(--lacuna-ink);
+  --color-lacuna-surface: var(--lacuna-surface);
+  --color-lacuna-border: var(--lacuna-border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Unify rounded-* (except rounded-none / rounded-full) to 6px */
+  --radius-xs: var(--lacuna-radius);
+  --radius-sm: var(--lacuna-radius);
+  --radius-md: var(--lacuna-radius);
+  --radius-lg: var(--lacuna-radius);
+  --radius-xl: var(--lacuna-radius);
+  --radius-2xl: var(--lacuna-radius);
+  --radius-3xl: var(--lacuna-radius);
+  --radius-4xl: var(--lacuna-radius);
+  --radius: var(--lacuna-radius);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--lacuna-canvas);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ccircle cx='5' cy='5' r='1.25' fill='rgba(193%2C127%2C90%2C0.04)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  color: var(--lacuna-ink);
 }

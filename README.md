@@ -23,3 +23,10 @@ Unlike static fragment collections compiled manually by individual scholars, Lac
 
 ## Credits
 
+Lacuna builds on these projects and communities. Thank you to their authors and maintainers.
+
+| Project | Role | Links |
+|--------|------|--------|
+| **react-force-graph** | Force-directed graph visualization in React (for the interactive knowledge graph UI) | [GitHub](https://github.com/vasturiano/react-force-graph) · [npm](https://www.npmjs.com/package/react-force-graph) |
+| **Classical Language Toolkit (CLTK)** | NLP and corpus tools for classical languages (Greek, Latin, etc.) | [cltk.org](https://cltk.org/) · [GitHub](https://github.com/cltk/cltk) · Python: `requirements.txt` |
+
