@@ -1,9 +1,5 @@
 # Lacuna
-
 ![License: MIT](https://img.shields.io/badge/license-MIT-green)
-
----
-
 ## Problem
 
 About 99% of ancient Greek literature has been lost to history. For example:
