@@ -21,3 +21,5 @@ The interactive knowledge graph functions as a library. Information generated wi
 
 Unlike static fragment collections compiled manually by individual scholars, Lacuna dynamically synthesizes references across the corpus into living profiles.
 
+## Credits
+
