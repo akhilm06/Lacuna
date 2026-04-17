@@ -40,8 +40,9 @@ export default async function AdminPage() {
               <h1 className={lacunaCardHeadingClass}>Admin</h1>
             </div>
             <p className="mt-3 w-full text-pretty text-sm leading-relaxed text-lacuna-ink">
-              Welcome to Admin. Read our about page for additional context. For full
-              functionality, set Gemini API key in the server environment.
+              Welcome to Admin. In order to use this page, you must be running Lacuna
+              locally. For full functionality, set Gemini API key in the server
+              environment. Read our about page for additional context.
             </p>
           </LacunaCanvasPanel>
 

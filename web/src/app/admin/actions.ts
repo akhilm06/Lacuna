@@ -4,6 +4,10 @@ import { revalidatePath } from "next/cache";
 
 import { runLacunaAiFlowIngest } from "@/lib/ai/run-ai-flow-ingest";
 import {
+  isNonWritableFilesystemError,
+  READ_ONLY_FILESYSTEM_USER_MESSAGE,
+} from "@/lib/fs-non-writable";
+import {
   clearLacunaAiFlow,
   pruneLacunaAiFlowForDeletedWork,
   restoreAiFlowFromStarter,
@@ -71,7 +75,14 @@ export async function createWork(
   const excerptErr = excerptListErrorMessage(excerpts);
   if (excerptErr) return { error: excerptErr };
 
-  await appendWork({ title: t, author: a, excerpts });
+  try {
+    await appendWork({ title: t, author: a, excerpts });
+  } catch (e) {
+    if (isNonWritableFilesystemError(e)) {
+      return { error: READ_ONLY_FILESYSTEM_USER_MESSAGE };
+    }
+    throw e;
+  }
   revalidatePath("/admin");
   revalidatePath("/");
   return { success: true };
@@ -91,7 +102,15 @@ export async function updateWork(
   const excerptErr = excerptListErrorMessage(excerpts);
   if (excerptErr) return { success: false, error: excerptErr };
 
-  const work = await updateWorkById(id, { title: t, author: a, excerpts });
+  let work;
+  try {
+    work = await updateWorkById(id, { title: t, author: a, excerpts });
+  } catch (e) {
+    if (isNonWritableFilesystemError(e)) {
+      return { success: false, error: READ_ONLY_FILESYSTEM_USER_MESSAGE };
+    }
+    throw e;
+  }
   if (!work) return { success: false, error: "Work not found." };
 
   revalidatePath("/admin");
@@ -112,9 +131,16 @@ export async function deleteWork(id: string): Promise<DeleteWorkResult> {
     return { success: false, error: "Work not found." };
   }
 
-  await pruneLacunaAiFlowForDeletedWork(trimmed);
-  const removed = await deleteWorkById(trimmed);
-  if (!removed) return { success: false, error: "Work not found." };
+  try {
+    await pruneLacunaAiFlowForDeletedWork(trimmed);
+    const removed = await deleteWorkById(trimmed);
+    if (!removed) return { success: false, error: "Work not found." };
+  } catch (e) {
+    if (isNonWritableFilesystemError(e)) {
+      return { success: false, error: READ_ONLY_FILESYSTEM_USER_MESSAGE };
+    }
+    throw e;
+  }
 
   revalidatePath("/admin");
   revalidatePath("/");
@@ -137,8 +163,15 @@ export async function wipeAllLibraryData(
     };
   }
 
-  await clearAllWorks();
-  await clearLacunaAiFlow();
+  try {
+    await clearAllWorks();
+    await clearLacunaAiFlow();
+  } catch (e) {
+    if (isNonWritableFilesystemError(e)) {
+      return { success: false, error: READ_ONLY_FILESYSTEM_USER_MESSAGE };
+    }
+    throw e;
+  }
   revalidatePath("/admin");
   revalidatePath("/");
   return { success: true };
@@ -187,7 +220,14 @@ export async function clearAiFlowOutput(
     };
   }
 
-  await clearLacunaAiFlow();
+  try {
+    await clearLacunaAiFlow();
+  } catch (e) {
+    if (isNonWritableFilesystemError(e)) {
+      return { success: false, error: READ_ONLY_FILESYSTEM_USER_MESSAGE };
+    }
+    throw e;
+  }
   revalidatePath("/admin");
   revalidatePath("/");
   return { success: true };
@@ -198,7 +238,15 @@ export type RunAiFlowResult =
   | { success: false; error: string };
 
 export async function runAiFlowIngest(): Promise<RunAiFlowResult> {
-  const result = await runLacunaAiFlowIngest();
+  let result;
+  try {
+    result = await runLacunaAiFlowIngest();
+  } catch (e) {
+    if (isNonWritableFilesystemError(e)) {
+      return { success: false, error: READ_ONLY_FILESYSTEM_USER_MESSAGE };
+    }
+    throw e;
+  }
   if (!result.ok) return { success: false, error: result.error };
   revalidatePath("/admin");
   revalidatePath("/");

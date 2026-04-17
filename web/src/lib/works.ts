@@ -1,7 +1,10 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 
-import { isNonWritableFilesystemError } from "@/lib/fs-non-writable";
+import {
+  isNonWritableFilesystemError,
+  READ_ONLY_FILESYSTEM_USER_MESSAGE,
+} from "@/lib/fs-non-writable";
 
 const MAX_OPTIONAL_EXCERPT_FIELD_CHARS = 32_000;
 
@@ -118,12 +121,19 @@ export async function restoreWorksFromStarter(): Promise<
         "Starter library is empty or invalid. Edit web/data/works.starter.json (array of works with id, title, author, excerpts).",
     };
   }
-  await ensureDataDir();
-  await writeFile(
-    worksFilePath,
-    `${JSON.stringify(starter, null, 2)}\n`,
-    "utf8",
-  );
+  try {
+    await ensureDataDir();
+    await writeFile(
+      worksFilePath,
+      `${JSON.stringify(starter, null, 2)}\n`,
+      "utf8",
+    );
+  } catch (e) {
+    if (isNonWritableFilesystemError(e)) {
+      return { ok: false, error: READ_ONLY_FILESYSTEM_USER_MESSAGE };
+    }
+    throw e;
+  }
   return { ok: true };
 }
 

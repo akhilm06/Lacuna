@@ -9,3 +9,7 @@ export function isNonWritableFilesystemError(err: unknown): boolean {
     code === "ENOTSUP"
   );
 }
+
+/** Shown when Admin actions need to write JSON under `data/` but the host filesystem is read-only. */
+export const READ_ONLY_FILESYSTEM_USER_MESSAGE =
+  "This deployment cannot save data (read-only filesystem). Run the app locally to use restore, add works, and other features that write files.";

@@ -1,7 +1,10 @@
 import { mkdir, readFile, unlink, writeFile } from "node:fs/promises";
 import path from "node:path";
 
-import { isNonWritableFilesystemError } from "@/lib/fs-non-writable";
+import {
+  isNonWritableFilesystemError,
+  READ_ONLY_FILESYSTEM_USER_MESSAGE,
+} from "@/lib/fs-non-writable";
 import type {
   AiFlowEdge,
   GhostEvidence,
@@ -283,7 +286,14 @@ export async function restoreAiFlowFromStarter(): Promise<
         "Starter analysis flow file is missing. Add web/data/lacuna-ai-flow.starter.json (ghostWorks, edges, lastRunAt).",
     };
   }
-  await writeLacunaAiFlow(starter);
+  try {
+    await writeLacunaAiFlow(starter);
+  } catch (e) {
+    if (isNonWritableFilesystemError(e)) {
+      return { ok: false, error: READ_ONLY_FILESYSTEM_USER_MESSAGE };
+    }
+    throw e;
+  }
   return { ok: true };
 }
 
