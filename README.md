@@ -65,6 +65,28 @@ Lacuna employs the multi-pass flow listed below:
 - Contested section.
 - Ranked confidence scores.
 
+## Quick start
+
+Visit: https://lacuna-77apqnerk-akhil-muthyalas-projects.vercel.app/
+
+Or
+
+From the repository root:
+
+```bash
+npm install --prefix web
+npm run dev
+```
+
+Or from `web/`:
+
+```bash
+npm install
+npm run dev
+```
+
+Copy `web/.env.example` to `web/.env.local` and set `GEMINI_API_KEY` if you use **Admin → Run analysis flow**.
+
 ## Credits
 
 Lacuna builds on these projects and communities. Thank you to their authors and maintainers.
@@ -73,3 +95,4 @@ Lacuna builds on these projects and communities. Thank you to their authors and 
 | Project               | Role                                                                                 | Links                                                                                                              |
 | --------------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
 | **react-force-graph** | Force-directed graph visualization in React (for the interactive knowledge graph UI) | [GitHub](https://github.com/vasturiano/react-force-graph) · [npm](https://www.npmjs.com/package/react-force-graph) |
+

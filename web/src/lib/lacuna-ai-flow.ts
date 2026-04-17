@@ -1,6 +1,7 @@
 import { mkdir, readFile, unlink, writeFile } from "node:fs/promises";
 import path from "node:path";
 
+import { isNonWritableFilesystemError } from "@/lib/fs-non-writable";
 import type {
   AiFlowEdge,
   GhostEvidence,
@@ -262,7 +263,12 @@ export async function writeLacunaAiFlow(state: LacunaAiFlowState): Promise<void>
 async function bootstrapAiFlowFromStarterIfMissing(): Promise<LacunaAiFlowState> {
   const starter = await readStarterAiFlowForBootstrap();
   if (!starterAiFlowHasContent(starter)) return { ...EMPTY_STATE };
-  await writeLacunaAiFlow(starter);
+  try {
+    await writeLacunaAiFlow(starter);
+  } catch (e) {
+    if (isNonWritableFilesystemError(e)) return starter;
+    throw e;
+  }
   return starter;
 }
 

@@ -1,6 +1,8 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 
+import { isNonWritableFilesystemError } from "@/lib/fs-non-writable";
+
 const MAX_OPTIONAL_EXCERPT_FIELD_CHARS = 32_000;
 
 export type WorkExcerpt = {
@@ -76,12 +78,17 @@ async function readStarterWorks(): Promise<Work[]> {
 async function bootstrapWorksFromStarterIfMissing(): Promise<Work[]> {
   const starter = await readStarterWorks();
   if (starter.length === 0) return [];
-  await ensureDataDir();
-  await writeFile(
-    worksFilePath,
-    `${JSON.stringify(starter, null, 2)}\n`,
-    "utf8",
-  );
+  try {
+    await ensureDataDir();
+    await writeFile(
+      worksFilePath,
+      `${JSON.stringify(starter, null, 2)}\n`,
+      "utf8",
+    );
+  } catch (e) {
+    if (isNonWritableFilesystemError(e)) return starter;
+    throw e;
+  }
   return starter;
 }
 
