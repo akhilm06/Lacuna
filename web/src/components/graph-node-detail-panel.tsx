@@ -92,11 +92,21 @@ export function GraphNodeDetailPanel({
   const closeRef = useRef<HTMLButtonElement>(null);
   const [entered, setEntered] = useState(false);
   const [topUnderHeader, setTopUnderHeader] = useState<number | null>(null);
+  /** Full-viewport sheet on narrow screens (must drive inline position — CSS cannot override measured top). */
+  const [phoneSheet, setPhoneSheet] = useState(false);
 
   useLayoutEffect(() => {
     closeRef.current?.focus();
     const id = requestAnimationFrame(() => setEntered(true));
     return () => cancelAnimationFrame(id);
+  }, []);
+
+  useLayoutEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    const apply = () => setPhoneSheet(mq.matches);
+    apply();
+    mq.addEventListener("change", apply);
+    return () => mq.removeEventListener("change", apply);
   }, []);
 
   useLayoutEffect(() => {
@@ -155,16 +165,35 @@ export function GraphNodeDetailPanel({
       aria-modal="true"
       aria-labelledby={titleId}
       className={[
-        "fixed right-0 bottom-0 z-50 flex w-full max-w-sm flex-col border border-solid border-lacuna-border shadow-xl sm:max-w-md",
-        "transition-transform duration-200 ease-out motion-reduce:translate-x-0 motion-reduce:transition-none",
-        entered ? "translate-x-0" : "translate-x-full",
+        "fixed z-50 flex min-h-0 w-full flex-col",
+        phoneSheet
+          ? "min-h-0 border-0"
+          : "bottom-0 right-0 border border-solid border-lacuna-border shadow-xl md:left-auto md:max-w-md",
+        "transition-transform duration-200 ease-out motion-reduce:translate-x-0 motion-reduce:translate-y-0 motion-reduce:transition-none",
+        phoneSheet
+          ? entered
+            ? "translate-y-0"
+            : "translate-y-full"
+          : entered
+            ? "translate-x-0"
+            : "translate-x-full",
       ].join(" ")}
       style={{
         ...LACUNA_PANEL_SURFACE_STYLE,
-        top:
-          topUnderHeader != null
-            ? `${topUnderHeader}px`
-            : "4rem" /* fallback until measured */,
+        ...(phoneSheet
+          ? {
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              boxShadow: "none",
+            }
+          : {
+              top:
+                topUnderHeader != null
+                  ? `${topUnderHeader}px`
+                  : "4rem" /* fallback until measured */,
+            }),
       }}
     >
       <div className="flex shrink-0 items-start justify-between gap-3 border-b border-solid border-lacuna-border px-4 py-3 sm:px-5">
