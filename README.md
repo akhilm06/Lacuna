@@ -69,7 +69,7 @@ Lacuna employs the multi-pass flow listed below:
 
 
 
-Live demo: https://lacuna-two.vercel.app/ (desktop or large screen recommended; for full functionality, run locally (shown below)).
+Live demo: <a href="https://lacuna-two.vercel.app/" target="_blank" rel="noopener noreferrer">https://lacuna-two.vercel.app/</a> (desktop or large screen recommended; for full functionality, run locally (shown below)).
 
 Or
 
@@ -96,5 +96,5 @@ Lacuna builds on these projects and communities. Thank you to their authors and 
 
 | Project               | Role                                                                                 | Links                                                                                                              |
 | --------------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
-| **react-force-graph** | Force-directed graph visualization in React (for the interactive knowledge graph UI) | [GitHub](https://github.com/vasturiano/react-force-graph) · [npm](https://www.npmjs.com/package/react-force-graph) |
+| **react-force-graph** | Force-directed graph visualization in React (for the interactive knowledge graph UI) | <a href="https://github.com/vasturiano/react-force-graph" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="https://www.npmjs.com/package/react-force-graph" target="_blank" rel="noopener noreferrer">npm</a> |
 
