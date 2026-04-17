@@ -17,6 +17,9 @@
 /.next/
 /out/
 
+# Turbopack / tooling caches (paths may appear under .next in dev)
+.turbo/
+
 # production
 /build
 
@@ -32,6 +35,7 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
 
 # vercel
 .vercel
@@ -39,3 +43,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Local work library (seeded from works.starter.json on first run; do not commit your edits unless intentional)
+/data/works.json
+
+# Analysis flow output (generated locally; do not commit live file)
+/data/lacuna-ai-flow.json
+/data/lacuna-step1.json
+# lacuna-ai-flow.starter.json is committed (bundled demo ghosts).

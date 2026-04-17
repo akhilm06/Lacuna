@@ -1,5 +1,13 @@
 # Lacuna
-![License: MIT](https://img.shields.io/badge/license-MIT-green)
+
+License: MIT
+
+---
+
+![](./web/screenshots/graph1.png)
+
+![](./web/screenshots/graph2.png)
+
 ## Problem
 
 About 99% of ancient Greek literature has been lost to history. For example:
@@ -21,12 +29,47 @@ The interactive knowledge graph functions as a library. Information generated wi
 
 Unlike static fragment collections compiled manually by individual scholars, Lacuna dynamically synthesizes references across the corpus into living profiles.
 
+## How To Use
+
+### Within Main Page:
+
+- Known nodes are marked green, while ghost nodes are marked dashed and blue. 
+- Adespota nodes are generated when title, author, or both, are left unknown. These nodes serve as catch-alls.
+- Click a node on the graph to open its details in the sidebar.
+- Use the index to filter the graph by author.
+
+### Within Admin:
+
+- Add works by including title, author name, and excerpts.
+- Run analysis flow (**requires including Gemini API key within Environmental Variables file**).
+- Restore or swap starter library, remove constructed ghost nodes, or delete all data.
+- Export your results.
+
+## Analysis Flow
+
+Lacuna employs the multi-pass flow listed below: 
+
+1. Normalize and translate excerpts.
+2. Distill title, author, and relevant excerpts.
+3. Merge to create ghost nodes (deduplication).
+4. Generate Brief Overview section.
+5. Generate What Is Known section.
+6. Verify information is accurate (loop until satisfied).
+
+## Future Directions
+
+- Incremental profile updates as new sources are added.
+- Import whole works (flag sections, turn into excerpts).
+- Analyze works in batches for larger projects.
+- Better search functionality.
+- Contested section.
+- Ranked confidence scores.
+
 ## Credits
 
 Lacuna builds on these projects and communities. Thank you to their authors and maintainers.
 
-| Project | Role | Links |
-|--------|------|--------|
-| **react-force-graph** | Force-directed graph visualization in React (for the interactive knowledge graph UI) | [GitHub](https://github.com/vasturiano/react-force-graph) · [npm](https://www.npmjs.com/package/react-force-graph) |
-| **Classical Language Toolkit (CLTK)** | NLP and corpus tools for classical languages (Greek, Latin, etc.) | [cltk.org](https://cltk.org/) · [GitHub](https://github.com/cltk/cltk) · Python: `requirements.txt` |
 
+| Project               | Role                                                                                 | Links                                                                                                              |
+| --------------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| **react-force-graph** | Force-directed graph visualization in React (for the interactive knowledge graph UI) | [GitHub](https://github.com/vasturiano/react-force-graph) · [npm](https://www.npmjs.com/package/react-force-graph) |

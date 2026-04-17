@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist_Mono, Lora } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+import { Providers } from "@/app/providers";
+import { lacunaFaviconHref } from "@/lib/favicon";
+
+const lora = Lora({
   subsets: ["latin"],
+  variable: "--font-lora",
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
 });
 
 const geistMono = Geist_Mono({
@@ -15,6 +20,15 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Lacuna",
   description: "Lost work profiles and an interactive knowledge graph for classical literature.",
+  icons: {
+    icon: [
+      {
+        url: lacunaFaviconHref(),
+        type: "image/svg+xml",
+        sizes: "any",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -25,10 +39,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${lora.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-lacuna-canvas font-sans text-lacuna-ink antialiased">
-        {children}
+      <body className="min-h-full flex flex-col bg-lacuna-page font-sans text-lacuna-ink antialiased">
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

@@ -1,0 +1,102 @@
+[
+  {
+    "id": "a1000001-0001-4000-8000-000000000001",
+    "title": "On Divination",
+    "author": "Cicero",
+    "createdAt": "2026-04-14T12:00:00.000Z",
+    "excerpts": [
+      {
+        "id": "cic-div-eudemus",
+        "text": "Aristotle in the Eudemus tells of a dream that proved prophetic, using it to argue the soul survives the body and retains its powers after death."
+      }
+    ]
+  },
+  {
+    "id": "a1000002-0002-4000-8000-000000000002",
+    "title": "Consolation to Apollonius",
+    "author": "Plutarch",
+    "createdAt": "2026-04-14T12:00:01.000Z",
+    "excerpts": [
+      {
+        "id": "plut-cons-apoll-eudemus",
+        "text": "As Aristotle showed in the Eudemus, the soul does not perish with the body but returns to that better place from which it came, a view he held before other considerations drew him elsewhere."
+      }
+    ]
+  },
+  {
+    "id": "a1000003-0003-4000-8000-000000000003",
+    "title": "Commentary on Aristotle's De Anima",
+    "author": "Simplicius",
+    "createdAt": "2026-04-14T12:00:02.000Z",
+    "excerpts": [
+      {
+        "id": "simp-de-anima-eudemus",
+        "text": "In the dialogue called Eudemus, Aristotle still followed Plato in asserting the soul's immortality, a position he would later revise considerably in the treatise we now possess."
+      }
+    ]
+  },
+  {
+    "id": "a1000004-0004-4000-8000-000000000004",
+    "title": "Protrepticus",
+    "author": "Iamblichus",
+    "createdAt": "2026-04-14T12:00:03.000Z",
+    "excerpts": [
+      {
+        "id": "iamb-protrepticus-quote",
+        "text": "As Aristotle urged in his own Protrepticus, one must either philosophize or philosophize — for even deciding to avoid philosophy requires philosophical inquiry to justify the choice."
+      }
+    ]
+  },
+  {
+    "id": "a1000005-0005-4000-8000-000000000005",
+    "title": "Hortensius",
+    "author": "Cicero",
+    "createdAt": "2026-04-14T12:00:04.000Z",
+    "excerpts": [
+      {
+        "id": "cic-hortensius-protreptic",
+        "text": "Following the argument Aristotle laid out when urging men to philosophy, we too must confess that the pursuit of wisdom is not one calling among many but the only one worthy of a free mind."
+      }
+    ]
+  },
+  {
+    "id": "a1000006-0006-4000-8000-000000000006",
+    "title": "Lives of the Eminent Philosophers",
+    "author": "Diogenes Laertius",
+    "createdAt": "2026-04-14T12:00:05.000Z",
+    "excerpts": [
+      {
+        "id": "dl-protrepticus-listing",
+        "text": "Among the works of Aristotle is listed the Protrepticus, a work of exhortation addressed to Themison of Cyprus, in which he argues that the conditions for philosophy are nowhere better met than in a man of wealth and ambition who turns toward wisdom."
+      },
+      {
+        "id": "dl-gryllus-listing",
+        "text": "The Gryllus is listed among Aristotle's works, described as a dialogue on the nature of rhetoric, prompted by the death of Gryllus son of Xenophon, whom many had eulogized."
+      }
+    ]
+  },
+  {
+    "id": "a1000007-0007-4000-8000-000000000007",
+    "title": "Various Histories",
+    "author": "Aelian",
+    "createdAt": "2026-04-14T12:00:06.000Z",
+    "excerpts": [
+      {
+        "id": "aelian-gryllus",
+        "text": "Aristotle wrote a dialogue called Gryllus, taking as his occasion the death of Xenophon's son of that name, in which he examined whether rhetoric deserves to be counted among the arts or whether it is mere practice without principle."
+      }
+    ]
+  },
+  {
+    "id": "a1000008-0008-4000-8000-000000000008",
+    "title": "Institutes of Oratory",
+    "author": "Quintilian",
+    "createdAt": "2026-04-14T12:00:07.000Z",
+    "excerpts": [
+      {
+        "id": "quint-gryllus",
+        "text": "Aristotle in the Gryllus took up the question of whether rhetoric deserves to be called an art, a dialogue which shows that even the greatest philosophical minds found the status of rhetoric worth disputing at length."
+      }
+    ]
+  }
+]

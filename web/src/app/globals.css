@@ -6,23 +6,34 @@
  */
 :root {
   color-scheme: light;
-  --lacuna-canvas: #f5f0e8;
+  /* Page chrome — warm paper; panels — lighter off-white */
+  --lacuna-page: #f5f0e8;
+  --lacuna-canvas: #faf8f5;
   --lacuna-surface: #c4a882;
   --lacuna-ink: #c17f5a;
+  /* Known work nodes on the graph — same as graph-node-styles GRAPH_NODE_KNOWN_FILL */
+  --lacuna-graph-known-fill: #7a8c6e;
   /* Hairline borders — max 1px; use with border-solid */
   --lacuna-border: color-mix(in oklab, var(--lacuna-ink) 22%, transparent);
   /* One radius for the product (6px) — scholarly, not “SaaS round” */
   --lacuna-radius: 6px;
+  /* Bordered panels — barely lifts off page */
+  --lacuna-panel-shadow: 0 1px 2px color-mix(in oklab, var(--lacuna-ink) 8%, transparent);
 }
 
 /* On secondary surfaces (tan), body text uses canvas color for contrast. Pair: bg-lacuna-surface + text-lacuna-canvas */
 
 @theme inline {
+  --color-lacuna-page: var(--lacuna-page);
   --color-lacuna-canvas: var(--lacuna-canvas);
   --color-lacuna-ink: var(--lacuna-ink);
   --color-lacuna-surface: var(--lacuna-surface);
   --color-lacuna-border: var(--lacuna-border);
-  --font-sans: var(--font-geist-sans);
+  /* Lora (--font-lora) comes from next/font on <html>. Tailwind v4 base + .font-sans still reference the old Geist token names from the default theme — map them here or the stack falls back to system UI fonts. */
+  --default-font-family: var(--font-lora);
+  --font-geist-sans: var(--font-lora);
+  --font-sans: var(--font-lora);
+  --font-serif: var(--font-lora);
   --font-mono: var(--font-geist-mono);
   /* Unify rounded-* (except rounded-none / rounded-full) to 6px */
   --radius-xs: var(--lacuna-radius);
@@ -37,8 +48,85 @@
 }
 
 body {
-  background-color: var(--lacuna-canvas);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ccircle cx='5' cy='5' r='1.25' fill='rgba(193%2C127%2C90%2C0.04)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
+  background-color: var(--lacuna-page);
   color: var(--lacuna-ink);
+}
+
+/*
+ * Admin only (class toggled in app/admin/layout via AdminLeafPressBody).
+ * Watermark: one olive branch, centered — tinted to known-node olive via mask + fill.
+ * Source: Wikimedia Commons — Olive_branch_drawing.svg (CC0), saved as /leaf.svg
+ */
+body.admin-leaf-press::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-color: var(--lacuna-graph-known-fill);
+  mask-image: url("/leaf.svg");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 85%;
+  mask-mode: luminance;
+  -webkit-mask-image: url("/leaf.svg");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: 85%;
+  opacity: 0.75;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body.admin-leaf-press > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Pointer on interactive buttons (native controls default to arrow in some browsers). */
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  cursor: pointer;
+}
+button:disabled,
+input[type="button"]:disabled,
+input[type="submit"]:disabled,
+input[type="reset"]:disabled {
+  cursor: not-allowed;
+}
+
+/* Scrollbars — terracotta thumb, hairline track; matches --lacuna-radius.
+ * Global: every scrollable region (including the page) uses this look.
+ * macOS overlay scrollbars still follow System Settings → Appearance. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in oklab, var(--lacuna-ink) 38%, transparent)
+    color-mix(in oklab, var(--lacuna-ink) 6%, transparent);
+}
+
+*::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+*::-webkit-scrollbar-track {
+  margin: 4px;
+  background: color-mix(in oklab, var(--lacuna-ink) 5%, transparent);
+  border-radius: var(--lacuna-radius);
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: var(--lacuna-radius);
+  background: color-mix(in oklab, var(--lacuna-ink) 34%, transparent);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in oklab, var(--lacuna-ink) 48%, transparent);
+  background-clip: padding-box;
+}
+
+*::-webkit-scrollbar-corner {
+  background: transparent;
 }

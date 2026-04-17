@@ -1,15 +1,18 @@
-export default function Home() {
+import { GraphHomeClient } from "@/components/graph-home-client";
+import { SiteHeader } from "@/components/site-header";
+import { getLacunaAiFlow } from "@/lib/lacuna-ai-flow";
+import { getWorks } from "@/lib/works";
+
+export const dynamic = "force-dynamic";
+
+export default async function Home() {
+  const [works, aiFlow] = await Promise.all([getWorks(), getLacunaAiFlow()]);
+
   return (
-    <div className="flex min-h-full flex-1 flex-col">
-      <main className="flex flex-1 flex-col items-center justify-start px-6 pt-5 sm:pt-6">
-        <h1 className="text-4xl font-semibold tracking-tight">Lacuna</h1>
-        <p className="mt-4 w-full max-w-full overflow-x-auto text-center text-lg leading-relaxed whitespace-nowrap">
-          A library of known and lost works visualized by interactive nodes.
-        </p>
-        <div className="mt-6 self-stretch">
-          <hr className="border-0 border-t border-lacuna-border" />
-        </div>
-      </main>
+    <div className="grid h-dvh min-h-0 grid-rows-[auto_minmax(0,1fr)] overflow-hidden">
+      <SiteHeader active="graph" />
+
+      <GraphHomeClient works={works} aiFlow={aiFlow} />
     </div>
   );
 }

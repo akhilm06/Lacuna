@@ -1,0 +1,13 @@
+diff --git a/node_modules/force-graph/dist/force-graph.mjs b/node_modules/force-graph/dist/force-graph.mjs
+index 20fd5f1..15340df 100644
+--- a/node_modules/force-graph/dist/force-graph.mjs
++++ b/node_modules/force-graph/dist/force-graph.mjs
+@@ -959,7 +959,7 @@ var DRAG_CLICK_TOLERANCE_PX = 5; // How many px can a node be accidentally dragg
+ // Expose config from forceGraph
+ var bindFG = linkKapsule('forceGraph', CanvasForceGraph);
+ var bindBoth = linkKapsule(['forceGraph', 'shadowGraph'], CanvasForceGraph);
+-var linkedProps = Object.assign.apply(Object, _toConsumableArray(['nodeColor', 'nodeAutoColorBy', 'nodeCanvasObject', 'nodeCanvasObjectMode', 'linkColor', 'linkAutoColorBy', 'linkLineDash', 'linkWidth', 'linkCanvasObject', 'linkCanvasObjectMode', 'linkDirectionalArrowLength', 'linkDirectionalArrowColor', 'linkDirectionalArrowRelPos', 'linkDirectionalParticles', 'linkDirectionalParticleSpeed', 'linkDirectionalParticleOffset', 'linkDirectionalParticleWidth', 'linkDirectionalParticleColor', 'linkDirectionalParticleCanvasObject', 'dagMode', 'dagLevelDistance', 'dagNodeFilter', 'onDagError', 'd3AlphaMin', 'd3AlphaDecay', 'd3VelocityDecay', 'warmupTicks', 'cooldownTicks', 'cooldownTime', 'onEngineTick', 'onEngineStop'].map(function (p) {
++var linkedProps = Object.assign.apply(Object, _toConsumableArray(['nodeColor', 'nodeAutoColorBy', 'nodeCanvasObject', 'nodeCanvasObjectMode', 'linkColor', 'linkAutoColorBy', 'linkLineDash', 'linkWidth', 'linkCanvasObject', 'linkCanvasObjectMode', 'linkDirectionalArrowLength', 'linkDirectionalArrowColor', 'linkDirectionalArrowRelPos', 'linkDirectionalParticles', 'linkDirectionalParticleSpeed', 'linkDirectionalParticleOffset', 'linkDirectionalParticleWidth', 'linkDirectionalParticleColor', 'linkDirectionalParticleCanvasObject', 'dagMode', 'dagLevelDistance', 'dagNodeFilter', 'onDagError', 'd3AlphaMin', 'd3AlphaDecay', 'd3AlphaTarget', 'd3VelocityDecay', 'warmupTicks', 'cooldownTicks', 'cooldownTime', 'onEngineTick', 'onEngineStop'].map(function (p) {
+   return _defineProperty({}, p, bindFG.linkProp(p));
+ })).concat(_toConsumableArray(['nodeRelSize', 'nodeId', 'nodeVal', 'nodeVisibility', 'linkSource', 'linkTarget', 'linkVisibility', 'linkCurvature'].map(function (p) {
+   return _defineProperty({}, p, bindBoth.linkProp(p));
