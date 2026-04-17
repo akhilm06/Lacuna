@@ -1,7 +1,5 @@
 # Lacuna
 
-Live demo: [https://lacuna-two.vercel.app/](https://lacuna-two.vercel.app/)
-
 License: MIT
 
 ---
@@ -69,7 +67,9 @@ Lacuna employs the multi-pass flow listed below:
 
 ## Quick start
 
-Visit: https://lacuna-two.vercel.app/
+
+
+Live demo: https://lacuna-two.vercel.app/ (desktop or large screen recommended; for full functionality, run locally (shown below)).
 
 Or
 

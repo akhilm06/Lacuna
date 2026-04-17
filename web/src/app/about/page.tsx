@@ -149,24 +149,24 @@ const CELLS: AboutCell[] = [
 
 export default function AboutPage() {
   return (
-    <div className="relative flex h-[100dvh] max-h-[100dvh] min-h-0 flex-1 flex-col overflow-hidden bg-lacuna-page">
+    <div className="relative flex min-h-dvh flex-col bg-lacuna-page md:h-dvh md:max-h-dvh md:overflow-hidden">
       <SiteHeader active="about" />
-      <main className="relative flex min-h-0 flex-1 flex-col overflow-hidden">
-        <div className="grid h-full min-h-0 flex-1 grid-cols-3 grid-rows-[minmax(0,1fr)_minmax(0,1fr)] border border-solid border-lacuna-border">
+      <main className="relative flex min-h-0 flex-1 flex-col overflow-y-auto md:overflow-hidden">
+        <div className="flex flex-col divide-y divide-solid divide-lacuna-border border border-solid border-lacuna-border md:grid md:h-full md:min-h-0 md:flex-1 md:grid-cols-3 md:grid-rows-[minmax(0,1fr)_minmax(0,1fr)] md:divide-y-0">
           {CELLS.map((cell, i) => (
             <div
               key={i}
-              className="flex min-h-0 min-w-0 overflow-hidden border-r border-b border-solid border-lacuna-border p-3 sm:p-4 [&:nth-child(3n)]:border-r-0 [&:nth-child(n+4)]:border-b-0"
+              className="flex min-h-0 min-w-0 flex-col p-3 sm:p-4 md:overflow-hidden md:border-r md:border-b md:border-solid md:border-lacuna-border md:[&:nth-child(3n)]:border-r-0 md:[&:nth-child(n+4)]:border-b-0"
             >
               {cell.kind === "title" ? (
                 <LacunaCanvasPanel
-                  className={`flex h-full min-h-0 w-full min-w-0 flex-1 flex-col overflow-hidden ${lacunaCardPaddingClass}`}
+                  className={`flex w-full min-w-0 flex-col md:h-full md:min-h-0 md:flex-1 md:overflow-hidden ${lacunaCardPaddingClass}`}
                 >
                   <div className={lacunaCardTitleRuleClass}>
                     <h2 className={lacunaCardHeadingClass}>{cell.title}</h2>
                   </div>
                   {cell.body ? (
-                    <div className="mt-3 flex min-h-0 flex-1 flex-col">
+                    <div className="mt-3 flex min-h-0 flex-1 flex-col md:min-h-0">
                       <ScrollRegion className="space-y-3 pr-1.5 text-sm leading-relaxed text-lacuna-ink sm:pr-2">
                         {cell.body}
                       </ScrollRegion>
@@ -176,15 +176,15 @@ export default function AboutPage() {
               ) : (
                 <LacunaCanvasPanel
                   surface="transparent"
-                  className="relative flex h-full min-h-0 w-full min-w-0 flex-1 flex-col overflow-hidden p-0"
+                  className="relative flex w-full min-w-0 flex-col overflow-hidden p-0 md:h-full md:min-h-0 md:flex-1"
                 >
-                  <div className="relative h-full min-h-0 w-full min-w-0 flex-1">
+                  <div className="relative aspect-[4/3] w-full md:h-full md:min-h-0 md:flex-1 md:aspect-auto">
                     <Image
                       src={cell.src}
                       alt={cell.alt}
                       fill
                       priority={cell.priority}
-                      sizes="(max-width: 640px) 100vw, 33vw"
+                      sizes="(max-width: 767px) 100vw, 33vw"
                       className={`${cell.imgClassName ?? "object-cover object-center"} mix-blend-multiply`}
                     />
                   </div>

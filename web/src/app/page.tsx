@@ -9,7 +9,7 @@ export default async function Home() {
   const [works, aiFlow] = await Promise.all([getWorks(), getLacunaAiFlow()]);
 
   return (
-    <div className="grid h-dvh min-h-0 grid-rows-[auto_minmax(0,1fr)] overflow-hidden">
+    <div className="grid min-h-dvh grid-rows-[auto_auto] overflow-x-hidden md:h-dvh md:min-h-0 md:grid-rows-[auto_minmax(0,1fr)] md:overflow-hidden">
       <SiteHeader active="graph" />
 
       <GraphHomeClient works={works} aiFlow={aiFlow} />

@@ -39,7 +39,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${lora.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${lora.variable} ${geistMono.variable} min-h-full overflow-x-hidden antialiased`}
     >
       <body className="min-h-full flex flex-col bg-lacuna-page font-sans text-lacuna-ink antialiased">
         <Providers>{children}</Providers>

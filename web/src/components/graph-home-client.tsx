@@ -87,9 +87,9 @@ export function GraphHomeClient({
   );
 
   return (
-    <main className="flex h-full min-h-0 min-w-0 flex-col divide-y divide-solid divide-lacuna-border overflow-hidden md:flex-row md:divide-x md:divide-y-0">
+    <main className="flex min-h-0 min-w-0 flex-col divide-y divide-solid divide-lacuna-border max-md:h-auto max-md:overflow-visible md:h-full md:overflow-hidden md:flex-row md:divide-x md:divide-y-0">
       <aside
-        className="flex w-full min-w-0 shrink-0 flex-col overflow-hidden px-4 py-6 max-md:min-h-[min(40vh,20rem)] max-md:max-h-[min(72vh,40rem)] sm:px-6 md:h-full md:max-h-none md:min-h-0 md:w-[22rem] lg:w-[24rem]"
+        className="flex w-full min-w-0 shrink-0 flex-col overflow-hidden px-4 py-6 sm:px-6 md:h-full md:min-h-0 md:w-[22rem] lg:w-[24rem]"
         aria-label="Index"
       >
         <GraphIndexSidebar
@@ -103,7 +103,7 @@ export function GraphHomeClient({
         />
       </aside>
 
-      <section className="flex min-h-0 min-w-0 flex-1 flex-col px-4 py-6 sm:px-6 md:h-full md:min-h-0 lg:px-8">
+      <section className="flex min-h-0 min-w-0 flex-col px-4 py-6 sm:px-6 max-md:min-h-[min(56vh,28rem)] max-md:flex-none md:flex-1 md:h-full md:min-h-0 lg:px-8">
         <h1 className="sr-only">Lacuna graph</h1>
         <WorksForceGraph
           works={works}
