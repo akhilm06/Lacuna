@@ -1,5 +1,222 @@
 {
-  "ghostWorks": [],
-  "edges": [],
-  "lastRunAt": null
+  "ghostWorks": [
+    {
+      "id": "b5db09c9-92dc-4639-a097-063a7da3681e",
+      "ghostKind": "specific",
+      "title": "Eudemus",
+      "author": "Aristotle",
+      "titleMeta": {
+        "status": "known",
+        "value": "Eudemus"
+      },
+      "authorMeta": {
+        "status": "known",
+        "value": "Aristotle"
+      },
+      "evidence": [
+        {
+          "workId": "a1000001-0001-4000-8000-000000000001",
+          "excerptIds": [
+            "cic-div-eudemus"
+          ]
+        },
+        {
+          "workId": "a1000002-0002-4000-8000-000000000002",
+          "excerptIds": [
+            "plut-cons-apoll-eudemus"
+          ]
+        },
+        {
+          "workId": "a1000003-0003-4000-8000-000000000003",
+          "excerptIds": [
+            "simp-de-anima-eudemus"
+          ]
+        }
+      ],
+      "briefOverview": "The Eudemus is a lost work by Aristotle, described by later authors as a dialogue asserting the immortality of the soul. This position is linked to his earlier thought and Platonic influence, with one account noting a prophetic dream as evidence.",
+      "whatIsKnown": "The work argues the soul retains its powers after death. [3]\nThe soul returns to a better place from which it came. [2]",
+      "whatIsKnownSourceRefs": [
+        {
+          "n": 2,
+          "workId": "a1000002-0002-4000-8000-000000000002",
+          "title": "Consolation to Apollonius",
+          "author": "Plutarch"
+        },
+        {
+          "n": 3,
+          "workId": "a1000001-0001-4000-8000-000000000001",
+          "title": "On Divination",
+          "author": "Cicero"
+        }
+      ],
+      "droppedClaimsCount": 0
+    },
+    {
+      "id": "3cb92718-a030-425a-9dd1-9815d06ea491",
+      "ghostKind": "specific",
+      "title": "Protrepticus",
+      "author": "Aristotle",
+      "titleMeta": {
+        "status": "known",
+        "value": "Protrepticus"
+      },
+      "authorMeta": {
+        "status": "known",
+        "value": "Aristotle"
+      },
+      "evidence": [
+        {
+          "workId": "a1000004-0004-4000-8000-000000000004",
+          "excerptIds": [
+            "iamb-protrepticus-quote"
+          ]
+        },
+        {
+          "workId": "a1000006-0006-4000-8000-000000000006",
+          "excerptIds": [
+            "dl-protrepticus-listing"
+          ]
+        }
+      ],
+      "briefOverview": "Aristotle's Protrepticus is described as a work of exhortation addressed to Themison of Cyprus. It urged the necessity of philosophy, arguing that wealthy and ambitious individuals are particularly well-suited for philosophical inquiry.",
+      "whatIsKnown": "The work argued that even the decision to avoid philosophy necessitates philosophical inquiry. [2]",
+      "whatIsKnownSourceRefs": [
+        {
+          "n": 2,
+          "workId": "a1000004-0004-4000-8000-000000000004",
+          "title": "Protrepticus",
+          "author": "Iamblichus"
+        }
+      ],
+      "droppedClaimsCount": 0
+    },
+    {
+      "id": "d4a27c65-9668-4cbe-b5c5-67397dad1395",
+      "ghostKind": "adespota",
+      "title": "Adespota",
+      "author": "Aristotle",
+      "titleMeta": {
+        "status": "unknown"
+      },
+      "authorMeta": {
+        "status": "known",
+        "value": "Aristotle"
+      },
+      "evidence": [
+        {
+          "workId": "a1000005-0005-4000-8000-000000000005",
+          "excerptIds": [
+            "cic-hortensius-protreptic"
+          ]
+        }
+      ],
+      "briefOverview": null,
+      "whatIsKnown": "Aristotle made an argument urging men to philosophy [1].\nThis argument concerned the pursuit of wisdom [1].\nIt asserted that the pursuit of wisdom is the only calling worthy of a free mind [1].",
+      "whatIsKnownSourceRefs": [
+        {
+          "n": 1,
+          "workId": "a1000005-0005-4000-8000-000000000005",
+          "title": "Hortensius",
+          "author": "Cicero"
+        }
+      ],
+      "droppedClaimsCount": 0
+    },
+    {
+      "id": "e2d8a112-0f07-47c0-a098-792a9c2e4b0d",
+      "ghostKind": "specific",
+      "title": "Gryllus",
+      "author": "Aristotle",
+      "titleMeta": {
+        "status": "known",
+        "value": "Gryllus"
+      },
+      "authorMeta": {
+        "status": "known",
+        "value": "Aristotle"
+      },
+      "evidence": [
+        {
+          "workId": "a1000006-0006-4000-8000-000000000006",
+          "excerptIds": [
+            "dl-gryllus-listing"
+          ]
+        },
+        {
+          "workId": "a1000007-0007-4000-8000-000000000007",
+          "excerptIds": [
+            "aelian-gryllus"
+          ]
+        },
+        {
+          "workId": "a1000008-0008-4000-8000-000000000008",
+          "excerptIds": [
+            "quint-gryllus"
+          ]
+        }
+      ],
+      "briefOverview": "Aristotle's lost dialogue, Gryllus, explored the nature of rhetoric, specifically questioning whether it constituted an art. Its composition was prompted by the death of Xenophon's son, Gryllus.",
+      "whatIsKnown": "Many had eulogized Gryllus, son of Xenophon [2].\nThe dialogue examined whether rhetoric is mere practice without principle [3].\nThe dialogue showed that even the greatest philosophical minds found the status of rhetoric worth disputing at length [1].",
+      "whatIsKnownSourceRefs": [
+        {
+          "n": 1,
+          "workId": "a1000008-0008-4000-8000-000000000008",
+          "title": "Institutes of Oratory",
+          "author": "Quintilian"
+        },
+        {
+          "n": 2,
+          "workId": "a1000006-0006-4000-8000-000000000006",
+          "title": "Lives of the Eminent Philosophers",
+          "author": "Diogenes Laertius"
+        },
+        {
+          "n": 3,
+          "workId": "a1000007-0007-4000-8000-000000000007",
+          "title": "Various Histories",
+          "author": "Aelian"
+        }
+      ],
+      "droppedClaimsCount": 0
+    }
+  ],
+  "edges": [
+    {
+      "sourceWorkId": "a1000001-0001-4000-8000-000000000001",
+      "targetGhostId": "b5db09c9-92dc-4639-a097-063a7da3681e"
+    },
+    {
+      "sourceWorkId": "a1000002-0002-4000-8000-000000000002",
+      "targetGhostId": "b5db09c9-92dc-4639-a097-063a7da3681e"
+    },
+    {
+      "sourceWorkId": "a1000003-0003-4000-8000-000000000003",
+      "targetGhostId": "b5db09c9-92dc-4639-a097-063a7da3681e"
+    },
+    {
+      "sourceWorkId": "a1000004-0004-4000-8000-000000000004",
+      "targetGhostId": "3cb92718-a030-425a-9dd1-9815d06ea491"
+    },
+    {
+      "sourceWorkId": "a1000005-0005-4000-8000-000000000005",
+      "targetGhostId": "d4a27c65-9668-4cbe-b5c5-67397dad1395"
+    },
+    {
+      "sourceWorkId": "a1000006-0006-4000-8000-000000000006",
+      "targetGhostId": "3cb92718-a030-425a-9dd1-9815d06ea491"
+    },
+    {
+      "sourceWorkId": "a1000006-0006-4000-8000-000000000006",
+      "targetGhostId": "e2d8a112-0f07-47c0-a098-792a9c2e4b0d"
+    },
+    {
+      "sourceWorkId": "a1000007-0007-4000-8000-000000000007",
+      "targetGhostId": "e2d8a112-0f07-47c0-a098-792a9c2e4b0d"
+    },
+    {
+      "sourceWorkId": "a1000008-0008-4000-8000-000000000008",
+      "targetGhostId": "e2d8a112-0f07-47c0-a098-792a9c2e4b0d"
+    }
+  ],
+  "lastRunAt": "2026-04-17T04:05:27.715Z"
 }

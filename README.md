@@ -6,8 +6,6 @@ License: MIT
 
 ![](./web/screenshots/graph1.png)
 
-![](./web/screenshots/graph2.png)
-
 ## Problem
 
 About 99% of ancient Greek literature has been lost to history. For example:
@@ -28,6 +26,8 @@ Lacuna performs lost work profile construction and provides an aesthetic interac
 The interactive knowledge graph functions as a library. Information generated within a ghost node is always linked to its original reference and dispositionally conservative in order to avoid hallucination and compounding drift. 
 
 Unlike static fragment collections compiled manually by individual scholars, Lacuna dynamically synthesizes references across the corpus into living profiles.
+
+![](./web/screenshots/graph2.png)
 
 ## How To Use
 
