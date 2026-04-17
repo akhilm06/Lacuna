@@ -35,7 +35,7 @@ export function SiteHeader({ active }: { active: SiteNavKey }) {
         >
           Lacuna
         </Link>
-        <span className="min-w-0">
+        <span className="hidden min-w-0 md:inline">
           – A library of known and lost works visualized by interactive nodes.
         </span>
       </p>
