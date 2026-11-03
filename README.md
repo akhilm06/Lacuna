@@ -1,4 +1,6 @@
-View new version here: https://github.com/akhilm06/Lacuna/
+New version here (renamed): https://github.com/akhilm06/Doma/
+
+This is the old repository and stale.
 
 # Lacuna
 
