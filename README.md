@@ -1,6 +1,6 @@
-New version here (renamed): https://github.com/akhilm06/Doma/
+# New version here (renamed): https://github.com/akhilm06/Doma/
 
-This is the old repository and stale.
+## This is the old repository and stale.
 
 # Lacuna
 
